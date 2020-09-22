@@ -3,6 +3,7 @@
 
 #include "observer.h"
 #include "displayelement.h"
+#include "subject.h"
 
 class CurrentConditionsDisplay : public Observer, public DisplayElement
 {
@@ -10,8 +11,9 @@ private:
     float temperature;
     float humidity;
     float pressure;
+    Subject *weatherData;
 public:
-    CurrentConditionsDisplay();
+    CurrentConditionsDisplay(Subject *weatherData);
     virtual void update(float t, float h, float p);
     virtual void display();
 };
